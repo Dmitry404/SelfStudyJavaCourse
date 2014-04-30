@@ -1,0 +1,7 @@
+1.	How do you understand OOP?
+2.	Describe three main concepts of OOP in Java
+3.	What is the difference between Is-a and Is-like? What advantages and disadvantages?
+4.	How do you understand this point of view – think of object as a service provider? What is its benefits? Try to creat your own mini servise provider.
+5.	Inheritance and composition – what approach is better to use?
+6.	What is hidden implementation? Which resources does java provide for hidden implementation?
+7.	What is the main rule for equals and hashcode? 
