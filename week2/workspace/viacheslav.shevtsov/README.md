@@ -54,6 +54,7 @@ class test {
 ```
 
 *7. What will be the output of the Java program below? Explain why?*
+
 The program will output:
 ```java
 Before the swap method: Foo{contains='a'}, Foo{contains='b'}
@@ -74,7 +75,7 @@ We do nothing with variables that are placed in the main method.
 We can do some changes in data, that are placed in the heap. In this case we will see the updated data.
 
 
-
+=============================== This part is not finished yet ===============================
 
 After you answer the questions above, please do some exercises. There are a few simple rules:  
 
