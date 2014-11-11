@@ -19,7 +19,7 @@ The term function is used to describe a named subroutine.
 Method is a part of class. The method can be called only for the object if the method exists in the class (the object is the instance of the class)
 Each method has fundamental parts: name, return type, argument list, method body.
 
-*4. What identifies a Java method? *
+*4. What identifies a Java method?*
 The signature of the method uniquely identify that method.
  
 *5. There is the "signature of the method" term. What does it mean?*
