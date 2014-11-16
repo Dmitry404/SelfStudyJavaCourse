@@ -73,27 +73,3 @@ These variables will be deleted from the stack when the method "swap"  has been 
 We do nothing with variables that are placed in the main method.
 
 We can do some changes in data, that are placed in the heap. In this case we will see the updated data.
-
-
-=============================== This part is not finished yet ===============================
-
-After you answer the questions above, please do some exercises. There are a few simple rules:  
-
-1. Take notice that you must compile and run all exercises in this lesson using terminal
-
-2. You should provide the results as *.java files which you ought to place along with the file with the answers
-
-Exercises:
-
-1. Write a program that demonstrates default values for both instance and local variables (in case of compilation error, describe what's wrong there using comments).
-
-2. Write a program that demonstrates how you could use the "static" keyword.
-  
-3. Write a program that demonstrated the lifecycle of a Java object.
-
-> In additional you might want to do some extra exercises that can be found at the end of the chapter we learn every week. 
-> It's not required, however, it would be a good chance to have more practice in writing Java programs. 
-> Those additional exercises you could place to a folder that should be under your workspace folder.
-> Please give a name to this folder, for instance, it could be "extra" or any name you'd like to use.
-
-Regards
