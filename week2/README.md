@@ -54,7 +54,6 @@ public class Main {
 }
 ```
 
-
 After you answer the questions above, please do some exercises. There are a few simple rules:  
 
 1. Take notice that you must compile and run all exercises in this lesson using terminal
