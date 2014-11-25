@@ -1,5 +1,6 @@
-* 1. Let's assume that we created a class which has a field, a static field, both static and non-static initialization blocks and a constructor without parameters. In addition, the class inherits another class which also has a parameterless constructor. 
-What will be the initialization order of these two classes? Create these classes in order to prove your answer.*
+1. *Let's assume that we created a class which has a field, a static field, both static and non-static initialization blocks and a constructor without parameters. In addition, the class inherits another class which also has a parameterless constructor.* 
+*What will be the initialization order of these two classes? Create these classes in order to prove your answer.*
+
 - static filed
 - Static initialization block
 - Constructor of the super class
