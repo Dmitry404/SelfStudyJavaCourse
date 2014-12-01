@@ -1,119 +1,87 @@
-1. *Let's assume that we created a class which has a field, a static field, both static and non-static initialization blocks and a constructor without parameters. In addition, the class inherits another class which also has a parameterless constructor.* 
-*What will be the initialization order of these two classes? Create these classes in order to prove your answer.*
 
-- static filed
-- Static initialization block
-- Constructor of the super class
-- Non-Static initialization block
-- Constructor of the inherited class
+1 . *The initialization order will be following:*
+    - Static filed
+    - Static initialization block
+    - Constructor of the super class
+    - Non-Static initialization block
+    - Constructor of the inherited class
 
-*Note:* Please see prove in the Exercise_1.java.
- 
-2. Look at the code block below. What will be the output if we run the main method of the class `A`? 
-What will happen if we remove the no-argument constructor of the `A` class? If there is an error, explain why it happens and suggest the way how to fix it.
+*Note:* Please see the prove in the ./src/Exercise_1.java
 
-```java
-public class A {
-    private String variable_D;
+2 . The initialization order:
 
-    public static String static_var = "Hello static variable";
+- Static variable in class "A"
+- Static block in class "A"
+- Static method main
+- print "Hello World!".
+- Static variable in class "B"
+- Static block in class "B"
+- Constructor "A" with a parameter (It was executed from Constructor B without parameters)
+- Constructor "A" executes a method printVariable() from from class B that set value for "variable"  in class "B"
+- Constructor "B"
 
-    static {
-        System.out.println("Hello from static block A");
-        System.out.println("Hello static variable = " + static_var);
-    }
+If we delete the constructor A() we will get a compilation error.
+It happens because constructor B(<String>) uses constructor A() indirectly.
+If we don't use "super" with or without parameters directly then superclass's constructor without parameters will be executed by default.
+To fix this issue we should add call of constructor A with parameter to constructor B with parameter.
 
-    public A() {
-        System.out.println("Hello from constructor A");
-        printVariable();
-    }
+3 . List here as many ways to create and initialize an array of two integers as you know.
 
-    public A(String variable) {
-        System.out.println("Hello from constructor A");
-        printVariable();
-    }
+- int[] a1 = {1,2};
+- int[] a2 = a1;
+- int[] a = new int[2];
+- int[] a = new int[]{1,2};
+- int[] a = new int[2]; a = new int[]{1,2};
+- int[] a = new int[2]; for(int i = 0; i < a.length; i++){a[i] = i;}
+- int[] a = new int[2]; a[0] = 1; a[1] = 2;
 
-    protected void printVariable() {
-        variable_D = "variable is initialized in Main Class";
-    }
-
-    public static void main(String[] args) {
-        System.out.println("Hello World!");
-        B b = new B();
-    }
-}
-
-public class B extends A {
-    private String variable;
-
-    public static String static_var = "Hello static variable";
-
-    static {
-        System.out.println("Hello from static block B");
-        System.out.println("Hello static variable = " + static_var);
-    }
-
-    public B() {
-        super(static_var);
-        System.out.println("variable value = " + variable);
-    }
-
-    public B(String variable) {
-        System.out.println("variable value = " + this.variable);
-    }
-
-    protected void printVariable() {
-        variable = "variable is initialized in B Class";
-    }
-}
-```
-
-3. List here as many ways to create and initialize an array of two integers as you know.
- 
-4. Look at the class below, probably there is a mistake that the author made. If you think so, change the class in order to 
- do that the author intended to do.
+4 .  I changed the code below.
 
 ```java
-public class C {
-    private static Entry entry = new Entry();
-
-    public static void main(String... args) {
-        Entry[] entryArray = new Entry[10];
-        for (int i = 0; i < 10; i++) {
-            entry.value = "str_" + i;
-            entryArray[i] = entry;
-        }
-
-        printArray(entryArray);
-    }
-
-    private static void printArray(Entry[] entryArr) {
-        for (Entry entry : entryArr) {
-            System.out.println(entry);
-        }
-    }
-
-    static class Entry {
-        public String toString() {
-            return "Entry{" +
-                    "value='" + value + '\'' +
-                    '}';
-        }
-
-        private String value;
-    }
-}
+     public static void main(String... args) {
+         Entry[] entryArray = new Entry[10];
+         for (int i = 0; i < 10; i++) {
+             Entry entryTemp = new Entry();
+             entryTemp.value = "str_" + i;
+             entryArray[i] = entryTemp;
+         }
+         printArray(entryArray);
+     }
 ```
+*Note:* Please see a fix in the ./src/C.java
 
-5. Explain how to destroy objects in Java.
+5 . Java doesn't have a special method to destroy object like a destructor in C++ (` ~<class_name>` ).
+Java has a Garbage Collector. It should free unused memory automatically.
+If a object isn't used (nothing has reference on it), GC will delete it automatically.
+Also we can call gc manually, but it is a bad idea in general.
 
-6. Can you rely on the `finalize` method? Are there any best practices to use `finalize` in your programs?
-  
-7. What is the main purpose of the Garbage Collector in Java? 
+6 . We cannot rely on the `finalize` method. GC will call a finalize method before deleting object if class contains method finalize.
+But we don't know when it happens exactly.  GC can never call method finalize in a few cases.
+This method slows down the GC.
+
+The method `finalze` can be used for :
+- the verification on the termination condition.
+- cleanup non-Java resources
+
+7 . GC is a part of Java Memory Management. GC is the process of looking at heap memory, identifying which objects are in use and which are not, and deleting the unused objects
  
-8. Read the "how a garbage collector works" chapter twice and try to explain how the GC works in Java.
- 
-9. Probably you've heard of the JIT term before. Explain what does this term stand for?
+8 . OS allocates the heap when JVM starts . This memory is managed by JVM while the program is running.
+This has a couple of important ramifications:
+- Object creation is faster because global synchronization with the operating system is not needed for every single object.
+- When an object is no longer used, the garbage collector reclaims the underlying memory and reuses it for future object allocation
 
-Good luck
+All objects are allocated on the heap area managed by the JVM.
+As long as an object is being referenced, the JVM considers it alive.
+Once an object is no longer referenced and therefore is not reachable by the application code, the garbage collector removes it and reclaims the unused memory.
+
+GC process  can be described as follows:
+- Step 1: Marking. GC checks all object trees and marks every object found as alive.
+This can be a very time consuming process if all objects in a system must be scanned.
+- Step 2: Deletion. All of the heap memory that is not occupied by marked objects is reclaimed. It is simply marked as free
+
+9 . A Just-In-Time (JIT) compiler is a feature of the run-time interpreter, that instead of interpreting bytecode every time a method is invoked,
+ will compile the bytecode into the machine code instructions of the running machine, and then invoke this object code instead.
+ JVM can optimize a piece of code each time it is executed, so the more the code is executed, the faster it gets (This approach is used in HotSpot).
+
+
 

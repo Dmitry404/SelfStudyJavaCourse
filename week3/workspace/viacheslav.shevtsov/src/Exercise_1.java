@@ -1,9 +1,11 @@
+
 class FieldInitializer{
     static String FieldInitializer(String message){
         System.out.println(message);
         return message;
     }
 }
+
 class ParentClass {
     ParentClass(){
         System.out.println("This is a constructor of ParentClass");

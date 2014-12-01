@@ -4,11 +4,11 @@ This is a new lesson so please open the book and read pages from 155 to 209. It'
 
 Then just answer a few questions:
 
-1. Let's assume that we created a class which has a field, a static field, both static and non-static initialization blocks
+1 . Let's assume that we created a class which has a field, a static field, both static and non-static initialization blocks
 and a constructor without parameters. In addition, the class inherits another class which also has a parameterless constructor. 
 What will be the initialization order of these two classes? Create these classes in order to prove your answer.
  
-2. Look at the code block below. What will be the output if we run the main method of the class `A`? 
+2 . Look at the code block below. What will be the output if we run the main method of the class `A`?
 What will happen if we remove the no-argument constructor of the `A` class? If there is an error, explain why it happens and suggest the way how to fix it.
 
 ```java
@@ -67,9 +67,9 @@ public class B extends A {
 }
 ```
 
-3. List here as many ways to create and initialize an array of two integers as you know.
+3 . List here as many ways to create and initialize an array of two integers as you know.
  
-4. Look at the class below, probably there is a mistake that the author made. If you think so, change the class in order to 
+4 . Look at the class below, probably there is a mistake that the author made. If you think so, change the class in order to
  do that the author intended to do.
 
 ```java
@@ -104,15 +104,15 @@ public class C {
 }
 ```
 
-5. Explain how to destroy objects in Java.
+5 . Explain how to destroy objects in Java.
 
-6. Can you rely on the `finalize` method? Are there any best practices to use `finalize` in your programs?
+6 . Can you rely on the `finalize` method? Are there any best practices to use `finalize` in your programs?
   
-7. What is the main purpose of the Garbage Collector in Java? 
+7 . What is the main purpose of the Garbage Collector in Java?
  
-8. Read the "how a garbage collector works" chapter twice and try to explain how the GC works in Java.
+8 . Read the "how a garbage collector works" chapter twice and try to explain how the GC works in Java.
  
-9. Probably you've heard of the JIT term before. Explain what does this term stand for?
+9 . Probably you've heard of the JIT term before. Explain what does this term stand for?
 
 Good luck
 
