@@ -1,4 +1,6 @@
 # Intellij
+out/
+.idea/
 .idea
 *.iml
 *.iws
@@ -12,3 +14,4 @@
 *.war
 *.jar
 *.class
+*.stackdump
